@@ -1,3 +1,7 @@
+## THIS IS SLOW AND INEFFICIENT
+##IGNORE AND USE RANKALL
+
+
 rankall2 <- function(outcome, num = "best"){
   
   valid_outcomes=c("heart attack","heart failure", "pneumonia")
