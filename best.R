@@ -20,7 +20,9 @@ best<- function(state, outcome){
   #3 columns numbers of outcome in our file
   #11 for heart attack, 17 for heart failure and 23 for pneumonia
   #my_col_number will contain the column number of outcome selected
-  my_col_number=outcome_col[which(valid_outcomes==outcome)]
+  
+  L= valid_outcomes==outcome #Logical vector to find position of outcome column
+  my_col_number=outcome_col[L]
   
   #load data from file into data frame outcome_file
   outcome_file <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
