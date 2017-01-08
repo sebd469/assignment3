@@ -2,6 +2,8 @@ rankhospital <- function(state, outcome, num=1){
   
   valid_outcomes=c("heart attack","heart failure", "pneumonia")
   
+  num=as.integer(num)
+  
   # check outcome is valid
   if (!outcome%in%valid_outcomes){
     stop("Invalid outcome")
@@ -31,12 +33,9 @@ rankhospital <- function(state, outcome, num=1){
   y[,3]= as.numeric(y[,3]) #coerce my outcome column to be numeric
   y = na.omit(y)
   
-  y= y[order(y[,3], decreasing = FALSE),]
+  y= y[order(y[,3], y[,1]),] #order by rate then hospital name
    
-  rate =y[num,3]  # find the rate at position num
-  y =y[y[,3]==rate,] # only keep hospitals wiht those rate
-  y[1,1]  #return first hospital wwiht usch a rate
-  
+  y[num,1] # return name of hospital  with rank m
     
   
   
