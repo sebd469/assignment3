@@ -22,7 +22,7 @@ best<- function(state, outcome){
   #my_col_number will contain the column number of outcome selected
   
   L= valid_outcomes==outcome #Logical vector to find position of outcome column
-  my_col_number=outcome_col[L]
+  my_col_number=outcome_col[L] # this is the column outcome to be used
   
   #load data from file into data frame outcome_file
   outcome_file <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
@@ -35,6 +35,7 @@ best<- function(state, outcome){
   
   
   y=outcome_file[,c(2,7,my_col_number)] #only keep relevant columns store into y
+  #in y column 1 is hospital name, column 2 is state, column 3 is outocme rate
   y=y[y[,2]==state,] # only keep rows relevant to state parameter
   y[,3]= as.numeric(y[,3]) #coerce my outcome column to be numeric
   y = na.omit(y)
@@ -42,9 +43,9 @@ best<- function(state, outcome){
   max_y= max(y[,3]) #find the max value for our outcome
   y=y[y[,3]==max_y,]  #only keep rows where values for column 3 is maximum
   
-  if (length(y)==1){
+  if (length(y)==1){ #if only one Hospital returns it
     y[1]
-    }#if only one Hospital returns it
+    }
   
  else{ #here we need to sort aphabetically by hospital name
    y= y[order(y[,1]),]
