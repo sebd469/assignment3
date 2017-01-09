@@ -48,11 +48,15 @@ rankall3 <- function(outcome, num = "best"){
   mylist =split(all_data,all_data$state) #split by STATE
   states=names(mylist) # vector containing all the different state codes
   results=character(0) # vector to contain the hospital name
-  return(all_data)
+  
   rank_state <- function(state, num){
-    data_for_state=all_data[all_data$state==state,]
+    
+    state_data=all_data[all_data$state==state,]
+    if(num=="worst") pos<-length(state_data$hospital)#last position
+    hospital= state_data$hospital[[1]]
     
   }
+  return(rank_state("CA",1)) ###TEST
   
   # loop around the states and find hospital at rank m each time
   for (i in seq_along(states)){
