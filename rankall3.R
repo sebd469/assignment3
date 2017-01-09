@@ -50,7 +50,7 @@ rankall3 <- function(outcome, num = "best"){
   results=character(0) # vector to contain the hospital name
   return(all_data)
   rank_state <- function(state, num){
-    sub_data=all_data[all_data$state==state,]
+    data_for_state=all_data[all_data$state==state,]
     
   }
   
