@@ -37,7 +37,7 @@ rankall <- function(outcome, num = "best"){
   outcome_file <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
   
   y=outcome_file[,c(2,7,my_col_number)] #only keep relevant columns store into y
-  #in y column 1 is hospital name, column 2 is state, column 3 is outocme rate
+  #in y column 1 is hospital name, column 2 is state, column 3 is outcome rate
   
   
 ##cleaning and sorting the data  
