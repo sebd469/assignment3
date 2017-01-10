@@ -18,7 +18,7 @@ rankall3 <- function(outcome, num = "best") {
   }
   
   data_by_state <- split(full_data[, c("Hospital.Name", "State", rate)], full_data$State)
-  
+  return(data_by_state)
   rank_hospital <- function(state_data, num) {
     ordered_state_data <- order(state_data[3], state_data$Hospital.Name, na.last=NA)
     
