@@ -40,7 +40,7 @@ best<- function(state, outcome){
   y[,3]= as.numeric(y[,3]) #coerce my outcome column to be numeric
   y = na.omit(y)
   names(y)<-c("hospital","state","rate")
-  y=y[order(y$rate,y$hospital),]
+  y=y[order(y$rate,y$hospital),] # order rows by rate then hospital name
   
   y[1,1]
   
