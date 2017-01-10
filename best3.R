@@ -41,18 +41,8 @@ best<- function(state, outcome){
   y = na.omit(y)
   names(y)<-c("hospital","state","rate")
   y=y[order(y$rate,y$hospital),]
-  return(y)
-  min_y= min(y[,3]) #find the max value for our outcome
-  y=y[y[,3]==min_y,]  #only keep rows where values for column 3 is maximum
   
-  if (length(y)==1){ #if only one Hospital returns it
-    y[1]
-    }
-  
- else{ #here we need to sort aphabetically by hospital name
-   y= y[order(y[,1]),]
-    y[1,1] #return first hospital from the list
-  }
+  y[1,1]
   
   
   }
